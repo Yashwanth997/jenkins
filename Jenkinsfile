@@ -1,6 +1,6 @@
 pipeline {
   
-       agent any
+    agent any
   stages{
     stage("build"){
       steps{
@@ -16,6 +16,7 @@ pipeline {
       steps{
         echo 'deploying the application from feature2..'
       }
+    }
       stage("release"){
       steps{
         echo 'releasing the application..'
