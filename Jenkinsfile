@@ -15,6 +15,8 @@ pipeline {
     }
     stage("deploy"){
       steps{
+        input 'Send to Release?'
+        message 'approve/abort'
         echo 'deploying the application..'
       }
     }
