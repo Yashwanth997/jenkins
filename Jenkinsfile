@@ -9,11 +9,13 @@ pipeline {
     }
     stage("test"){
       steps{
+        input 'Send to Deploy?'
         echo 'testing the application..'
       }
     }
     stage("deploy"){
       steps{
+        input 'Send to Release?'
         echo 'deploying the application..'
       }
     }
