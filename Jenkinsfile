@@ -14,7 +14,7 @@ pipeline {
     }
     stage("deploy"){
       steps{
-        echo 'deploying the application..'
+        echo 'deploying the application from feature2..'
       }
       stage("release"){
       steps{
