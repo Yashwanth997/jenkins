@@ -15,17 +15,15 @@ pipeline {
     }
     stage("deploy"){
       steps{
-        input 'Send to Release?'
-        try {
-								input(message: "Approve/Abort '${ENVIRONMENT}' deployment. If aborted kindly mention the reason in next step.", ok: 'Approve')//, submitter: env.SIGN_OFF_SUBMITTERS_QA)
-							}
-							catch(parentErr) {
-								try {
-									input(message: 'Revert the build to older stable version?', ok: 'Approve')//, submitter: env.SIGN_OFF_SUBMITTERS_QA)
+      	input(message: "Approve/Abort '${ENVIRONMENT}' deployment. If aborted kindly mention the reason in next step.", ok: 'Approve')//, submitter: env.SIGN_OFF_SUBMITTERS_QA)
+	}
+	catch(parentErr) {
+	try {
+        input(message: 'Revert the build to older stable version?', ok: 'Approve')//, submitter: env.SIGN_OFF_SUBMITTERS_QA)
 
-									// Get back the scaled down version up
-									JenkinsUtilities.FromConfigScaleUpPreviousECSService(AWS_ROLE)
-									// Revert Blue Green change for QA server
+        // Get back the scaled down version up
+        JenkinsUtilities.FromConfigScaleUpPreviousECSService(AWS_ROLE)
+	// Revert Blue Green change for QA server
 									JenkinsUtilities.FromConfigSwitchTargetGroupWeigthsCloudformation(AWS_ROLE)
 								}
 								catch(err) {
