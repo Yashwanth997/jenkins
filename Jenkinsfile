@@ -10,7 +10,7 @@ pipeline {
     stage("test"){
       when {
         beforeInput true
-      steps{
+         steps{
         echo 'testing the application..'
       }
       }
