@@ -11,7 +11,10 @@ pipeline {
     stage("test"){
       steps{
         input 'Send to Deploy?'
+        options{
+          lock ('lock-test-${params.test}')
         echo 'testing the application..'
+        }
       }
     }
     stage("deploy"){
