@@ -18,7 +18,6 @@ pipeline {
       steps{
         input 'Send to Release?'
         echo 'deploying the application..'
-        }
       }
     }
       stage("release") {
