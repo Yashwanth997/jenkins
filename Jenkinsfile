@@ -11,6 +11,8 @@ pipeline {
     stage("test"){
       steps{
         input 'Send to Deploy?'
+        def userAbort = input(id: 'userAbort',
+				message: BuildAbortMessage
         echo 'testing the application..'
       }
     }
