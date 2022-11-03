@@ -17,6 +17,8 @@ pipeline {
     stage("deploy") {
       steps{
         input 'Send to Release?'
+        when{
+          equals(actual: currentBuild=nextBuild)
         echo 'deploying the application..'
       }
     }
