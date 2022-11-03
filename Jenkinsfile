@@ -8,11 +8,8 @@ pipeline {
       }
     }
     stage("test"){
-      when {
-        beforeInput true
          steps{
         echo 'testing the application..'
-      }
       }
     }
     stage("deploy"){
