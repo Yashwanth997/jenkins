@@ -15,9 +15,6 @@ pipeline {
       }
     }
     stage("deploy") {
-      when {
-  changeRequest()
-}
         steps{
         input 'Send to Release?'
         echo 'deploying the application..'
