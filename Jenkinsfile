@@ -9,6 +9,11 @@ pipeline {
       }
     }
     stage("test") {
+      when {
+  triggeredBy 'Issue'
+  beforeInput true
+  beforeAgent true
+}
       steps{
         input 'Send to Deploy?'
         echo 'testing the application..'
