@@ -9,9 +9,8 @@ pipeline {
       }
     }
     stage("test") {
-      options {
-        lock ("lock-test-${env.JOB_BASE_NAME}")
-      }
+      when {
+        beforeInput true
       steps{
         input 'Send to Deploy?'
         echo 'testing the application..'
