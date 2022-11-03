@@ -22,6 +22,7 @@ pipeline {
     }
       stage("release"){
       steps{
+        input 'approve release?'
         echo 'releasing the application..'
       }
     }
