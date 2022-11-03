@@ -16,7 +16,6 @@ pipeline {
     }
     stage("deploy"){
       steps{
-        unstable 'unstable'
         input 'Send to Release?'
         echo 'deploying the application..'
       }
