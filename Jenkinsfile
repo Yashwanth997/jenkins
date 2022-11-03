@@ -9,18 +9,16 @@ pipeline {
       }
     }
     stage("test") {
-      when {
-  triggeredBy 'Issue'
-  beforeInput true
-  beforeAgent true
-}
       steps{
         input 'Send to Deploy?'
         echo 'testing the application..'
       }
     }
     stage("deploy") {
-      steps{
+      when {
+  changeRequest()
+}
+        steps{
         input 'Send to Release?'
         echo 'deploying the application..'
       }
