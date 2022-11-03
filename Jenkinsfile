@@ -20,6 +20,7 @@ pipeline {
         when{
           equals(actual: currentBuild=nextBuild)
         echo 'deploying the application..'
+        }
       }
     }
       stage("release") {
