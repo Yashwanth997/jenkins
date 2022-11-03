@@ -14,7 +14,7 @@ pipeline {
       steps{
         input 'Send to Deploy?'
         echo 'testing the application..'
-   
+      }
       }
     }
     stage("deploy") {
