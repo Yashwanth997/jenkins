@@ -11,6 +11,7 @@ pipeline {
     stage("test"){
       steps{
         input 'Send to Deploy?'
+        calculator.add(25,75)
         echo 'testing the application..'
       }
     }
