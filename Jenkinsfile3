@@ -2,11 +2,25 @@ node("nodename") {
   stage("Checkout") {
   }
   stage("Check Preconditions") {
-      if (!continueBuild) {
-      currentBuild.result = 'ABORTED'
-      error('Stopping early…')
-        }
-     }
+      def autoCancelled = false
+  try {
+  stage('checkout') {
+    ...
+    if (your condition) {
+      autoCancelled = true
+      error('Aborting the build to prevent a loop.')
+    }
+  }
+} catch (e) {
+  if (autoCancelled) {
+    currentBuild.result = 'ABORTED'
+    echo('Skipping mail notification')
+    // return here instead of throwing error to keep the build "green"
+    return
+  }
+  // normal error handling
+  throw e
+}
   stage("Do a lot of work") {
   }
 }
