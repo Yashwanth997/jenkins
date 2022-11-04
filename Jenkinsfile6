@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("Test") {
             when {
-                equals(actual: currentBuild.number, expected: 249)
+                equals(actual: currentBuild.number, expected: 251)
             }
             steps {
                 echo "Hello World!"
