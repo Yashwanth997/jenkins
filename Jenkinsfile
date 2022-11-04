@@ -8,14 +8,14 @@ pipeline {
          echo 'building the application..'
       }
     }
-     stage("test") 
-     if (!continueBuild) {
-    currentBuild.result = 'ABORTED'
-    error('Stopping early…')
-}
+       stage("test") {
       steps{
         input 'Send to Deploy?'
         echo 'testing the application..'
+        if (!continueBuild) {
+    currentBuild.result = 'ABORTED'
+    error('Stopping early…')
+        }
       }
     }
     stage("deploy") {
@@ -30,4 +30,5 @@ pipeline {
         echo 'releasing the application..'
       }
     }
+  }
 }
