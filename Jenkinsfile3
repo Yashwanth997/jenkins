@@ -5,7 +5,6 @@ node("nodename") {
       def autoCancelled = false
   try {
   stage('checkout') {
-    ...
     if (your condition) {
       autoCancelled = true
       error('Aborting the build to prevent a loop.')
