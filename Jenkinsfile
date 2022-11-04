@@ -3,9 +3,9 @@ pipeline {
     agent any
      stages{
      stage("build") {
-        steps{
-        input 'Send to Test?'
-         echo 'building the application..'
+       steps{
+       input 'Send to Test?'
+       echo 'building the application..'
       }
     }
        stage("test") {
