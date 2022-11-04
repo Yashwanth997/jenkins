@@ -1,13 +1,18 @@
 pipeline {
-    agent any
-    stages {
-        stage("Test") {
-            when {
-                equals(actual: currentBuild.number, expected: 253)
-            }
-            steps {
-                echo "Hello World!"
-            }
+agent any
+stages {
+    stage('Example Test') {
+        steps {
+            echo 'Hello, JDK'
         }
-    }
-}
+       }
+     }
+post {
+ success {
+     echo "${env.BUILD_URL} has result success"
+      }
+ failure {
+     echo "${env.BUILD_URL} has result fail"
+      }
+     }
+ }
