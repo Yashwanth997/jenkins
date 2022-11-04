@@ -8,7 +8,7 @@ pipeline {
          echo 'building the application..'
       }
     }
-    stage("test") {
+     stage("test") 
      if (!continueBuild) {
     currentBuild.result = 'ABORTED'
     error('Stopping early…')
