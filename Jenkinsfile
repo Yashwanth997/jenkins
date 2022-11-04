@@ -9,12 +9,10 @@ pipeline {
       }
     }
     stage("test") {
-      when {
-            branch '**/test-*'
-            beforeOptions true
-            beforeInput false
-            beforeAgent true
-        }
+     }if (!continueBuild) {
+    currentBuild.result = 'ABORTED'
+    error('Stopping early…')
+}
       steps{
         input 'Send to Deploy?'
         echo 'testing the application..'
