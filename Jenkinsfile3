@@ -1,14 +1,14 @@
 node("nodename") {
   stage("Checkout") {
-    git ....
   }
   stage("Check Preconditions") {
-    ...
-    if(!continueBuild) {
-      // What do I put here? currentBuild.xxx ?
-    }
+ 
+    if (!continueBuild) {
+    currentBuild.result = 'ABORTED'
+    error('Stopping early…')
+}
   }
   stage("Do a lot of work") {
-    ....
+ 
   }
 }
