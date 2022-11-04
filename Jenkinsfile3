@@ -1,14 +1,14 @@
-pipeline {
-  agent any
-   environment {
-     AAA_TOP_LEVEL_VAR = 'topLevel'
+node("nodename") {
+  stage("Checkout") {
+    git ....
   }
- stages {
-   stage('stage1') {
-    steps {
-      sh 'echo $AAA_TOP_LEVEL_VAR'
-      sh 'env | sort'
-       }
+  stage("Check Preconditions") {
+    ...
+    if(!continueBuild) {
+      // What do I put here? currentBuild.xxx ?
     }
+  }
+  stage("Do a lot of work") {
+    ....
   }
 }
