@@ -8,6 +8,9 @@ pipeline {
          }
        }
        stage("test") {
+       when {
+      branch 'master'
+         } 
       steps{
         input 'Send to Deploy?'
         echo 'testing the application..'
