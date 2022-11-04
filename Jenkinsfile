@@ -10,7 +10,6 @@ pipeline {
     }
     stage("test") {
       when {
-            branch '**/main-*'
             beforeOptions true
             beforeInput true
             beforeAgent true
