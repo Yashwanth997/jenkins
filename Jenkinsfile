@@ -12,18 +12,8 @@ pipeline {
       steps{
         input 'Send to Deploy?'
         echo 'testing the application..'
-        if (!continueBuild) {
-    currentBuild.result = 'ABORTED'
-    error('Stopping early…')
-        }
-      }
-    }
-    stage("deploy") {
-        steps{
-        input 'Send to Release?'
-        echo 'deploying the application..'
-      }
-    }
+       }
+     }
       stage("release") {
       steps{
         input 'approve release?'
