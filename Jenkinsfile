@@ -6,7 +6,8 @@ pipeline {
        input 'Send to Test?'
        echo 'building the application..'
          }
-       }stage("test") {
+       }
+        stage("test") {
       steps{
         input 'Send to deploy?'
         echo 'testing the application..'
