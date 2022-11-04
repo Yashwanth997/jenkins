@@ -9,7 +9,7 @@ pipeline {
        }
        stage("test") {
        when {
-      branch 'main'
+      branch 'master'
          } 
       steps{
         input 'Send to Deploy?'
