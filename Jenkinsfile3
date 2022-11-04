@@ -2,13 +2,11 @@ node("nodename") {
   stage("Checkout") {
   }
   stage("Check Preconditions") {
- 
-    if (!continueBuild) {
-    currentBuild.result = 'ABORTED'
-    error('Stopping early…')
-}
-  }
+      if (!continueBuild) {
+      currentBuild.result = 'ABORTED'
+      error('Stopping early…')
+        }
+     }
   stage("Do a lot of work") {
- 
   }
 }
