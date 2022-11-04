@@ -30,5 +30,4 @@ pipeline {
         echo 'releasing the application..'
       }
     }
-  }
 }
