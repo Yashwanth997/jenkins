@@ -3,19 +3,19 @@ pipeline {
     agent any
      stages{
      stage("build") {
-        when {
-            branch '**/test-*'
-            beforeOptions true
-            beforeInput true
-            beforeAgent true
-        }
-      steps{
+        steps{
         input 'Send to Test?'
         
         echo 'building the application..'
       }
     }
     stage("test") {
+      when {
+            branch '**/test-*'
+            beforeOptions true
+            beforeInput true
+            beforeAgent true
+        }
       steps{
         input 'Send to Deploy?'
         echo 'testing the application..'
