@@ -1,15 +1,15 @@
 pipeline {
   
     agent any
-  stages{
-   when {
-  branch '**/test-*'
-  beforeOptions true
-  beforeInput true
-  beforeAgent true
-    stage("build") {
+     stages{
+     stage("build") {
       steps{
         input 'Send to Test?'
+         when {
+            branch '**/test-*'
+            beforeOptions true
+            beforeInput true
+            beforeAgent true
         echo 'building the application..'
       }
     }
