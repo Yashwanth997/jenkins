@@ -1,0 +1,13 @@
+pipeline {
+      agent any
+      stages {
+      stage ('test') {
+      when 
+      branch "main-*"
+      }
+      steps {
+      echo "Hello World!"
+      }
+    }
+  }
+} 
