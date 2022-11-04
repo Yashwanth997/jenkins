@@ -4,11 +4,11 @@ pipeline {
      AAA_TOP_LEVEL_VAR = 'topLevel'
   }
  stages {
-   stage('stage1')
+   stage('stage1') {
     steps {
       sh 'echo $AAA_TOP_LEVEL_VAR'
       sh 'env | sort'
-        }
-     }
+       }
+    }
   }
 }
