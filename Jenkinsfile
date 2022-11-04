@@ -5,13 +5,12 @@ pipeline {
      stage("build") {
         steps{
         input 'Send to Test?'
-        
-        echo 'building the application..'
+         echo 'building the application..'
       }
     }
     stage("test") {
       when {
-            branch '**/test-*'
+            branch '**/main-*'
             beforeOptions true
             beforeInput true
             beforeAgent true
