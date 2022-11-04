@@ -8,13 +8,16 @@ pipeline {
          }
        }
        stage("test") {
-         when {
-         allOf {
-     }
+       when {
+     not {
+    allOf {
+    }
+  }
   beforeOptions true
   beforeInput true
   beforeAgent true
-     }
+}
+
       steps{
         input 'Send to Deploy?'
         echo 'testing the application..'
