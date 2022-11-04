@@ -13,7 +13,7 @@ pipeline {
         echo 'testing the application..'
          }
        } 
-       stage{"Deploy") {
+       stage("Deploy") {
        steps{
        input 'Send to Deploy?'
        echo 'deploying the application..'
