@@ -9,7 +9,7 @@ pipeline {
       }
     }
     stage("test") {
-     }if (!continueBuild) {
+     if (!continueBuild) {
     currentBuild.result = 'ABORTED'
     error('Stopping early…')
 }
