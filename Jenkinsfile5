@@ -1,6 +1,9 @@
 pipeline {
      agent any
      stages{
+      when {
+      branch 'feature1'
+         } 
      stage("build") {
        steps{
        input 'Send to Test?'
@@ -8,9 +11,7 @@ pipeline {
          }
        }
        stage("test") {
-       when {
-      branch 'feature1'
-         } 
+      
       steps{
         input 'Send to Deploy?'
         echo 'testing the application..'
