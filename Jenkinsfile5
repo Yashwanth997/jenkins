@@ -9,6 +9,7 @@ pipeline {
        }
        stage("test") {
         steps{
+        mvn clean
         input 'Send to Deploy?'
         echo 'testing the application..'
          }
