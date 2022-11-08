@@ -10,9 +10,7 @@ pipeline {
        stage("test") {
         steps{
         input 'Send to Deploy?'
-        lock(label: 'test', variable: 'var') {
-        echo "Resource locked: ${env.var}"
-           }
+        echo 'testing the application..'
          }
        } 
        stage("Deploy") {
