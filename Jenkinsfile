@@ -16,7 +16,8 @@ pipeline {
        stage("deploy") {
       steps{
         input 'Send to Release?'
-        echo 'testing the application..'
+           lock("test"){
+           echo 'locked test stage..'
          }
        } 
       stage("release") {
