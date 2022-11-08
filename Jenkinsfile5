@@ -19,7 +19,7 @@ environment {
        stage("Deploy") {
         steps{
        input 'Send to Release?'
-         lock(label: 'test', resource: 'test', variable: 'stage') {
+         lock(label: 'test', variable: 'stage') {
          echo "Resource locked: ${env.var}"
            }
          }
