@@ -15,7 +15,6 @@ environment {
         lock(resource: "lock-${env.BRANCH}")
             }
         steps{
-        input 'Send to Deploy?'
         echo 'testing the application..'
          }
        } 
