@@ -10,15 +10,14 @@ pipeline {
         stage("test") {
       steps{
         input 'Send to deploy?'
-        echo 'testing the application..'
+         lock("test"){
+         echo 'locked test stage..'
+           }
          }
        } 
        stage("deploy") {
       steps{
-        input 'Send to Release?'
-           lock("test"){
-           echo 'locked test stage..'
-           }
+        input 'Send to Release?' 
          }
        }
       stage("release") {
