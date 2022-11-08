@@ -1,0 +1,15 @@
+pipeline {
+    environment {
+        BRANCH = 'master'
+    }
+    agent any
+    stages{
+        stage('stage') {
+            options {
+                lock(resource: "lock-${env.BRANCH}")
+            }
+            steps {
+                echo "Something"
+            }
+        }
+    }
