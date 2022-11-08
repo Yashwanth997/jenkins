@@ -1,4 +1,5 @@
 pipeline {
+def name;
 environment {
         BRANCH = 'main'
     }
@@ -11,8 +12,9 @@ environment {
          }
        }
        stage("test") {
+          name = "test"
           options {
-        lock(resource: "lock-${env.JOB_BASE_NAME}")
+        lock(resource: "lock-test${env.JOB_BASE_NAME}")
             }
         steps{
         echo 'testing the application..'
