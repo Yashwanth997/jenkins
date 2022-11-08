@@ -18,8 +18,9 @@ pipeline {
         input 'Send to Release?'
            lock("test"){
            echo 'locked test stage..'
+           }
          }
-       } 
+       }
       stage("release") {
       steps{
         input 'approve release?'
