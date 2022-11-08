@@ -12,7 +12,7 @@ environment {
        }
        stage("test") {
           options {
-        lock(resource: "lock-${env.BRANCH}")
+        lock(resource: "lock-${env.JOB_BASE_NAME}")
             }
         steps{
         echo 'testing the application..'
