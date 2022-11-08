@@ -10,9 +10,7 @@ pipeline {
        stage("test") {
         steps{
         input 'Send to Deploy?'
-        options {
-	    lock ("lock-test-${env.JOB_BASE_NAME}")
-			 }
+        lock ("lock-test-${env.JOB_BASE_NAME}")
         echo 'testing the application..'
          }
        } 
