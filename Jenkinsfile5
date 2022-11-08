@@ -1,6 +1,6 @@
 pipeline {
 environment {
-        BRANCH = 'master'
+        BRANCH = 'main'
     }
      agent any
      stages{
