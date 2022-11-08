@@ -10,6 +10,7 @@ pipeline {
         stage("test") {
       steps{
         input 'Send to deploy?'
+           lock("test")
         echo 'testing the application..'
          }
        } 
