@@ -18,7 +18,7 @@ pipeline {
                 ok "Yes"
                 }
             steps{
-                 lock("test") {
+                 lock("my-unique-resource") {
                 echo "locked test"
                 }
             }
