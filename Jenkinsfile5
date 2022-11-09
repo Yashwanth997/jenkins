@@ -1,32 +1,37 @@
 pipeline {
-environment {
-        BRANCH = 'main'
-    }
      agent any
      stages{
-      stage("build") {
-       steps{
-       input 'Send to Test?'
+     stage("build") {
+            input {
+              message "Send to Test?"
+                 ok "Yes"
+            }
+          
+            steps{
        echo 'building the application..'
          }
        }
-       stage("test") { 
-        steps{
-        input 'Send to Deploy?'
-        echo 'testing the application..'
+        stage("test") {
+           input{
+                message "Send to deploy?"
+                ok "Yes"
+           }
+             
+            steps{
+                echo 'testing the application'
          }
        } 
-       stage("Deploy") {
-        steps{
-       input 'Send to Release?'
-         lock(label: 'test', variable: 'stage') {
-         echo "Resource locked: ${env.var}"
+       stage("deploy") {
+           input {
+                message 'Send to Release?' 
+                ok "YES"
            }
+            steps{
+                echo 'Deploying the application'
          }
        }
       stage("release") {
-       steps{
-        input 'approve release?'
+           steps {
         echo 'releasing the application..'
       }
     }
