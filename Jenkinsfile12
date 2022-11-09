@@ -1,0 +1,49 @@
+pipeline {
+     agent any
+     stages{
+     stage("build") {
+            input {
+              message "Send to Test?"
+                 ok "Yes"
+            }
+          
+            steps{
+            lock("my-unique-resource") {
+                echo 'test locked'
+            }
+       echo 'building the application..'
+         }
+       }
+        stage("test") {
+           input{
+                message "Send to deploy?"
+                ok "Yes"
+           }
+             
+            steps{
+            lock("my-unique-resource") {
+                echo 'test locked'
+            }
+         }
+       } 
+       stage("deploy") {
+           input {
+                message 'Send to Release?' 
+                ok "YES"
+           }
+            steps{
+            lock("my-unique-resource") {
+                echo 'test locked'
+            }
+                echo 'Deploying the application'
+         }
+       }
+      stage("release") {
+           steps {lock("my-unique-resource") {
+                echo 'test locked'
+            }
+        echo 'releasing the application..'
+      }
+    }
+  }
+}
