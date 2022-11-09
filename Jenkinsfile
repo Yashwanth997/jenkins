@@ -2,32 +2,34 @@ pipeline {
      agent any
      stages{
      stage("build") {
-       steps{
-       input 'Send to Test?'
+            input {
+              message "Send to Test?"
+                 ok "Yes"
+            steps{
        echo 'building the application..'
+            }
          }
        }
         stage("test") {
-      steps{
            input{
-                message 'Send to deploy?'
+                message "Send to deploy?"
                 ok "Yes"
+            steps{
                 echo 'testing the application'
            }
          }
        } 
        stage("deploy") {
-      steps{
            input {
                 message 'Send to Release?' 
                 ok "YES"
+            steps{
                 echo 'Deploying the application'
            }
          }
        }
       stage("release") {
-      steps{
-        input 'approve release?'
+           steps {
         echo 'releasing the application..'
       }
     }
