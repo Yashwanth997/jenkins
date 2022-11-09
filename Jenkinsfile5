@@ -19,7 +19,7 @@ pipeline {
              
             steps{
             lock("my-unique-resource") {
-                echo 'testing the application'
+                echo 'test locked'
             }
          }
        } 
