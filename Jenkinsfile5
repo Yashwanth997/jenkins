@@ -5,23 +5,23 @@ pipeline {
             input {
               message "Send to Test?"
                  ok "Yes"
+                 }
             }
-          
+   
             steps{
        echo 'building the application..'
-         }
        }
         stage("test") {
            input{
                 message "Send to deploy?"
                 ok "Yes"
                 }
+              }
             steps{
                  lock("my-unique-resource") {
                 echo "locked test"
                 }
             }
-       } 
        stage("deploy") {
            input {
                 message 'Send to Release?' 
@@ -31,7 +31,6 @@ pipeline {
              echo 'Deploying the application'
                  }
             }
-       }
       stage("release") {
            steps {
         echo 'releasing the application..'
