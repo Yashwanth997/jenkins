@@ -16,12 +16,11 @@ pipeline {
                 message "Send to deploy?"
                 ok "Yes"
                 }
-                lock("test") {
+            steps{
+                 lock("test") {
                 echo "locked test"
                 }
-            steps{
-                echo 'testing the application'
-         }
+            }
        } 
        stage("deploy") {
            input {
