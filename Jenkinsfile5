@@ -25,10 +25,12 @@ pipeline {
            input {
                 message 'Send to Release?' 
                 ok "YES"
-           }
+            }
             steps{
-                echo 'Deploying the application'
-         }
+              catchError(buildResult : 'SUCCESS' , stageResult : 'FAILURE') {
+                 sh "exit 1"
+                 }
+            }
        }
       stage("release") {
            steps {
