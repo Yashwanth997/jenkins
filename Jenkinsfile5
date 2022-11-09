@@ -9,6 +9,7 @@ pipeline {
           
             steps{
        echo 'building the application..'
+       sleep 60
          }
        }
         stage("test") {
