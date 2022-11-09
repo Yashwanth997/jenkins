@@ -6,18 +6,16 @@ pipeline {
               message "Send to Test?"
                  ok "Yes"
             }
-          
-            steps{
+           steps{
        echo 'building the application..'
          }
        }
         stage("test") {
-           input{
+           input {
                 message "Send to deploy?"
                 ok "Yes"
            }
-             
-            steps{
+             steps{
             lock('my-unique-resource') {
               echo 'test locked'
          }
