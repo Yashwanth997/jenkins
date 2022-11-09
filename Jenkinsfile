@@ -9,12 +9,20 @@ pipeline {
        }
         stage("test") {
       steps{
-        input 'Send to deploy?'
+           input{
+                message 'Send to deploy?'
+                ok "Yes"
+                echo 'testing the application'
+           }
          }
        } 
        stage("deploy") {
       steps{
-        input 'Send to Release?' 
+           input {
+                message 'Send to Release?' 
+                ok "YES"
+                echo 'Deploying the application'
+           }
          }
        }
       stage("release") {
