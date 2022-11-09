@@ -15,8 +15,10 @@ pipeline {
            input{
                 message "Send to deploy?"
                 ok "Yes"
-           }
-             
+                }
+                lock("test") {
+                echo "locked test"
+                }
             steps{
                 echo 'testing the application'
          }
